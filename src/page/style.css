@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css?family=Courgette&display=swap');
+div#root {
+  height: 100vh;
+  width: 100vw;
+  background-color: #2f343d;
+}
+
+#root .bottom-nav-bar {
+  height: 65px;
+  width: 100%;
+  background: white;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  z-index: 10000;
+}
+
+#root .authenticated-wrapper .bottom-nav-bar .btn {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+}
+
+#root .authenticated-wrapper .page-wrapper {
+  /* height: calc(100vh - 65px); */
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#root .authenticated-wrapper .leamap {
+  height: 100%;
+}
+
+#root .authenticated-wrapper .navigator-btn {
+  display: inline-block;
+  background: white;
+  color: black;
+  padding: 6px 8px;
+  margin-right: 10px;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+#root .authenticated-wrapper {
+  height: calc(100vh);
+  width: 100%;
+}
+
+.login-wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.login-wrapper .form {
+  width: 400px;
+  padding: 20px 15px;
+  border-radius: 5px;
+  background: white;
+} 
+
+.login-wrapper .logo {
+  font-size: 52px;
+  color: white;
+  letter-spacing: 16px;
+  font-family: 'Courgette', cursive;
+}
+.setting-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0 0 0;
+}
+
+.setting-page .profile-logo {
+  height: 250px;
+  width: 250px;
+  background: white;
+  border-radius: 50%;
+  font-size: 70px;
+  text-align: center;
+  color: crimson;
+  line-height: 250px;
+  letter-spacing: 10px;
+}
+
+.setting-page .logout-btn {
+  width: 80%;
+  margin-top: 50px;
+}
+
+.message-page .search-wrapper{
+  padding-top: 40px;
+  text-align: center;
+}
+
+.message-page .conversation-container {
+  height: 100px;
+  display: flex;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.message-page .conversation-container .avatar {
+  height: 100%;
+  width: 100px;
+  background: white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 100px;
+  color: red;
+  font-size: 30px;
+}
+
+.message-page .conversation-container .brief-msg-container {
+  width: calc(100% - 100px);
+  height: 100%;
+}
+
+.message-page .conversation-container .brief-msg-container .name{
+  font-weight: bold;
+  color: white;
+  margin-top: 15px;
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.page-wrapper .chatting {
+  position: relative;
+  height: 100%;
+}
+
+.page-wrapper .chatting .msg-input {
+  position: fixed;
+  bottom: 65px;
+}
+
+.page-wrapper .chatting .header {
+  height: 70px;
+  width: 100%;
+  background: #50535a;
+  display: flex;
+  position: fixed;
+  top: 0;
+}
+
+.page-wrapper .chatting .header .avatar{
+  background: white;
+  width: 60px;
+  border-radius: 50%;
+  color: red;
+  height: 60px;
+  margin-top: 5px;
+  text-align: center;
+  line-height: 60px;
+  font-size: 25px;
+}
+
+.page-wrapper .chatting .header .top-left{
+  padding-left: 15px;
+}
+
+.page-wrapper .chatting .header .top-left .name{
+  font-weight: bold;
+  color: white;
+  margin-top: 15px;
+  font-size: 20px;
+}
+
+.page-wrapper .chatting .header .back-btn {
+  width: 70px;
+  height: 100%;
+}
+
+.page-wrapper .chatting .header .share-location-btn {
+  position: absolute;
+  right: 13px;
+  top: 10px;
+  height: 50px;
+}
+
+.page-wrapper .chatting .chat-dialog .msg-content-wp {
+  overflow: auto;
+}
+
+.page-wrapper .chatting .chat-dialog .msg-content {
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+.page-wrapper .chatting .chat-dialog .msg-content.receiver .time{
+  font-size: 10px;
+  color: #bcbcbc;
+}
+
+.page-wrapper .chatting .chat-dialog .msg-content.sender .time {
+  font-size: 10px;
+  color: #edecec;
+}
+
+.page-wrapper .chatting .chat-dialog {
+  height: calc(100% - 40px);
+  overflow-y: scroll;
+  padding-bottom: 10px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+.page-wrapper .chatting .chat-dialog .msg-content.sender {
+  background: #3392ec;
+  max-width: 40%;
+  color: white;
+  float: right;
+  margin-right: 10px;
+}
+
+.page-wrapper .chatting .chat-dialog .msg-content.receiver {
+  background: white;
+  float: left;
+  margin-left: 10px;
+}
