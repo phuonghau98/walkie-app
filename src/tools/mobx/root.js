@@ -147,22 +147,24 @@ class RootStore {
 
   getNewMessages () {
     let maxTimestamp = 0
-    for (const msg of this.messages) {
-      if (msg.createdAt > maxTimestamp) maxTimestamp = msg.createdAt
-    }
-    const token = window.localStorage.getItem('token')
-    axios.post('http://34.87.24.184:8080/message/receive',
-      { 'milestone': maxTimestamp * 1000 + 1000 },
-      { headers: { 'Authorization': token } })
-      .then(({ data }) => {
-        if (data.messages) {
-          for (const msg of data.messages) {
-            this.messages.push(msg)
+    if (this.messages) {
+      for (const msg of this.messages) {
+        if (msg.createdAt > maxTimestamp) maxTimestamp = msg.createdAt
+      }
+      const token = window.localStorage.getItem('token')
+      axios.post('http://34.87.24.184:8080/message/receive',
+        { 'milestone': maxTimestamp * 1000 + 1000 },
+        { headers: { 'Authorization': token } })
+        .then(({ data }) => {
+          if (data.messages) {
+            for (const msg of data.messages) {
+              this.messages.push(msg)
+            }
           }
-        }
-      }).catch(err => {
-        console.log(err)
-      })
+        }).catch(err => {
+          console.log(err)
+        })
+    }
   }
 }
 
