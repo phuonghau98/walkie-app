@@ -76,6 +76,7 @@ class Message extends React.Component {
 
   render () {
     if (this.props.match && this.props.match.params && this.props.match.params.chatID) {
+        const { sharedLocations, messages } = this.props.rootStore
         try {
           const { chatID } = this.props.match.params
           const friend = this.props.rootStore.friends.find(friend => friend.id === chatID)
@@ -85,10 +86,10 @@ class Message extends React.Component {
             fullName={firstName + ' ' + lastName}
             navigateBack={this.navigateBack}
             chatID={id}
-            sharedLocation={this.props.rootStore.sharedLocations.filter(location => location.userID === this.props.rootStore.userProfile.id)[0]}
+            sharedLocation={sharedLocations && sharedLocations.filter(location => location.userID === this.props.rootStore.userProfile.id)[0]}
             shareLocation={this.shareLocation}
             handleSendMsg={this.handleSendMsg}
-            messages={this.props.rootStore.messages.filter((message) => message.receiver === chatID || message.sender === chatID)}
+            messages={messages && messages.filter((message) => message.receiver === chatID || message.sender === chatID)}
           />)
         } catch (err) {
           console.log(err)
