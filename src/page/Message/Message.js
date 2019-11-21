@@ -25,7 +25,7 @@ class Message extends React.Component {
 
   shareLocation = (userID, isRemove, callback) => {
     const token = window.localStorage.getItem('token')
-      axios.post('http://192.168.2.18:8080/geolocation/share',
+      axios.post('http://34.87.24.184:8080/geolocation/share',
         {
           userID,
           isRemove: isRemove || 0
@@ -51,7 +51,7 @@ class Message extends React.Component {
   handleSendMsg = (msg, receiver, callback) => {
     if (msg) {
       const token = window.localStorage.getItem('token')
-      axios.post('http://192.168.2.18:8080/message/send',
+      axios.post('http://34.87.24.184:8080/message/send',
         {
           content: msg,
           receiver: receiver

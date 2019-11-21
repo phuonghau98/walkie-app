@@ -39,7 +39,7 @@ class Authentication extends React.Component {
       this.setState({ loginMsg: '' })
       if (!err) {
         const { email, password } = values
-        axios.post('http://192.168.2.18:8080/user/authenticate', {
+        axios.post('http://34.87.24.184:8080/user/authenticate', {
           email,
           password
         })
@@ -73,7 +73,7 @@ class Authentication extends React.Component {
     this.registerRef.current.validateFields((err, values) => {
       if (!err) {
         const { email, password, firstName, lastName } = values
-        axios.post('http://192.168.2.18:8080/user/create', {
+        axios.post('http://34.87.24.184:8080/user/create', {
           email,
           password,
           firstName,

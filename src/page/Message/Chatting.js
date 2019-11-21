@@ -33,7 +33,7 @@ class Chatting extends React.Component {
   }
 
   render () {
-    const { navigateBack, fullName, navigateToLocation, chatID, messages, shareLocation, sharedLocation, handleSendMsg } = this.props
+    const { navigateBack, fullName, chatID, messages, shareLocation, sharedLocation, handleSendMsg } = this.props
     const shortenName = fullName && fullName.split(' ').map((ch) => ch.length > 0 ? ch[0] : '').join('')
     messages.sort((a, b) => a.createdAt - b.createdAt)
     return (

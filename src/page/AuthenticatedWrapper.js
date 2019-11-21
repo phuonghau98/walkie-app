@@ -12,7 +12,7 @@ class AuthenticatedWrapper extends React.Component {
     const { isAppReady, isAuthenticated } = this.props.rootStore
     if (!isAppReady && isAuthenticated) {
       const token = window.localStorage.getItem('token')
-      axios.get('http://192.168.2.18:8080/user/getprofile', {
+      axios.get('http://34.87.24.184:8080/user/getprofile', {
         headers: { 'Authorization': token}
       }).then(result => {
         if (result && result.data) {

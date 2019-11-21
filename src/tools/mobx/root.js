@@ -20,7 +20,7 @@ class Position {
         this.latitude = latitude
         this.timeStamp = position.timestamp
         const token = window.localStorage.getItem('token')
-        axios.post('http://192.168.2.18:8080/geolocation/update',
+        axios.post('http://34.87.24.184:8080/geolocation/update',
           { 'longitude': this.longitude, 'latitude': this.latitude },
           { headers: { 'Authorization': token } })
           .then(({ data }) => {
@@ -107,7 +107,7 @@ class RootStore {
   }
 
   fetchFriends () {
-    axios.get('http://192.168.2.18:8080/user/userlist').then(result => {
+    axios.get('http://34.87.24.184:8080/user/userlist').then(result => {
       if (result && result.data) {
         this.updateFriends(result.data.users)
       }
@@ -120,7 +120,7 @@ class RootStore {
   initiallyFetchMsg () {
     const token = window.localStorage.getItem('token')
     const friendIDs = this.friends.map(friend => friend.id)
-    axios.post('http://192.168.2.18:8080/message/lastmessages', { 'userIDs': friendIDs }, { headers: { 'Authorization': token }}).then(({ data }) => {
+    axios.post('http://34.87.24.184:8080/message/lastmessages', { 'userIDs': friendIDs }, { headers: { 'Authorization': token }}).then(({ data }) => {
       if (data) {
         this.messages = data.messages
       }
@@ -131,7 +131,7 @@ class RootStore {
 
   fetchSharedLocations () {
     const token = window.localStorage.getItem('token')
-    axios.get('http://192.168.2.18:8080/geolocation/get',
+    axios.get('http://34.87.24.184:8080/geolocation/get',
     { headers: { 'Authorization': token } })
     .then(({ data }) => {
       if (data.locations) {
@@ -151,7 +151,7 @@ class RootStore {
       if (msg.createdAt > maxTimestamp) maxTimestamp = msg.createdAt
     }
     const token = window.localStorage.getItem('token')
-    axios.post('http://192.168.2.18:8080/message/receive',
+    axios.post('http://34.87.24.184:8080/message/receive',
       { 'milestone': maxTimestamp * 1000 + 1000 },
       { headers: { 'Authorization': token } })
       .then(({ data }) => {
