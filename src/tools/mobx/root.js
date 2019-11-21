@@ -157,6 +157,7 @@ class RootStore {
         { headers: { 'Authorization': token } })
         .then(({ data }) => {
           if (data.messages) {
+            if (!data.messages) data.messages = []
             for (const msg of data.messages) {
               this.messages.push(msg)
             }
